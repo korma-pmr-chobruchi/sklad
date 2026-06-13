@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Склад Центр Чобручи — Корма, зерно, мука и комбикорм в ПМР</title>
+<meta name="description" content="Склад Центр — зерно, корма, комбикорм, мука, макуха, отруби и масла в Чобручах. Доставка, честные цены и большой ассортимент.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--green:#00A651;
+--green-dark:#008743;
+--text:#111827;
+--gray:#6B7280;
+--light:#F3F5F7;
+--white:#ffffff;
+--border:#E5E7EB;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+color:var(--text);
+background:#fff;
+line-height:1.6;
+}
+
+.container{
+width:min(1240px,92%);
+margin:auto;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(255,255,255,0.96);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);
+}
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 0;
+gap:20px;
+}
+
+.logo{
+font-size:34px;
+font-weight:900;
+color:var(--green);
+letter-spacing:-1px;
+}
+
+.logo span{
+color:var(--text);
+}
+
+.nav-links{
+display:flex;
+gap:26px;
+align-items:center;
+flex-wrap: wrap;
+}
+
+.nav-links a{
+text-decoration:none;
+color:var(--text);
+font-weight:600;
+transition:.2s;
+}
+
+.nav-links a:hover{
+color:var(--green);
+}
+
+.contact-btn{
+background:var(--green);
+color:#fff!important;
+padding:14px 24px;
+border-radius:999px;
+text-decoration:none;
+font-weight:600;
+white-space: nowrap;
+}
+
+.hero{
+padding:110px 0 90px;
+background:
+linear-gradient(135deg, rgba(0,0,0,0.50), rgba(0,0,0,0.35)),
+url('bg.jpg') center/cover no-repeat;
+color:#fff;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.15fr 0.85fr;
+gap:60px;
+align-items:center;
+}
+
+.hero h1{
+font-size:72px;
+line-height:0.98;
+font-weight:900;
+margin-bottom:28px;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:22px;
+max-width:720px;
+margin-bottom:36px;
+color:rgba(255,255,255,0.9);
+}
+
+.promo-banner {
+background: rgba(255, 255, 255, 0.12);
+border: 1px solid rgba(255, 255, 255, 0.2);
+padding: 24px;
+border-radius: 26px;
+backdrop-filter: blur(10px);
+max-width: 480px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+margin-top: 10px;
+}
+
+.promo-badge {
+display: inline-block;
+background: #E53E3E;
+color: #fff;
+text-transform: uppercase;
+font-weight: 800;
+font-size: 12px;
+padding: 4px 14px;
+border-radius: 999px;
+letter-spacing: 1px;
+margin-bottom: 16px;
+box-shadow: 0 4px 12px rgba(229, 62, 62, 0.4);
+}
+
+.promo-items {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.promo-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 18px;
+font-weight: 600;
+border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+padding-bottom: 8px;
+}
+
+.promo-item:last-child {
+border-bottom: none;
+padding-bottom: 0;
+}
+
+.promo-item strong {
+font-size: 22px;
+color: #4ADE80;
+font-weight: 800;
+}
+
+.hero-card{
+background:rgba(255,255,255,0.12);
+padding:35px 30px;
+border-radius:34px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.14);
+}
+
+.hero-card h3{
+font-size:28px;
+margin-bottom:12px;
+text-align:center;
+font-weight:800;
+}
+
+/* КАЛЬКУЛЯТОР */
+.calc-instruction {
+font-size: 14px;
+text-align: center;
+color: rgba(255,255,255,0.8);
+margin-bottom: 16px;
+}
+
+.calc-container {
+margin-bottom: 16px;
+}
+
+.calc-cat {
+margin-bottom: 8px;
+border-radius: 16px;
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.08);
+overflow: hidden;
+transition: background 0.2s;
+}
+
+.calc-cat-header {
+padding: 14px 18px;
+font-size: 15px;
+font-weight: 700;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+user-select: none;
+}
+
+.calc-cat-header:hover {
+background: rgba(255,255,255,0.06);
+}
+
+.calc-cat-header .arrow {
+font-size: 12px;
+transition: transform 0.25s ease;
+opacity: 0.8;
+}
+
+.calc-cat.active {
+background: rgba(0, 0, 0, 0.15);
+border-color: rgba(255,255,255,0.15);
+}
+
+.calc-cat.active .calc-cat-header .arrow {
+transform: rotate(180deg);
+color: #4ADE80;
+}
+
+.calc-cat-content {
+display: none;
+padding: 4px 12px 14px;
+grid-template-columns: 1fr 1fr;
+gap: 8px;
+animation: calcSlideDown 0.2s ease-out;
+}
+
+.calc-cat.active .calc-cat-content {
+display: grid;
+}
+
+@keyframes calcSlideDown {
+from { opacity: 0; transform: translateY(-4px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.calc-item-label {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 13.5px;
+color: #fff;
+cursor: pointer;
+background: rgba(255,255,255,0.05);
+padding: 10px 12px;
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.05);
+transition: .2s;
+user-select: none;
+}
+
+.calc-item-label:hover {
+background: rgba(255,255,255,0.12);
+border-color: rgba(255,255,255,0.1);
+}
+
+.calc-item-label input {
+width: 18px;
+height: 18px;
+accent-color: var(--green);
+cursor: pointer;
+flex-shrink: 0;
+}
+
+.calc-rows {
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-bottom: 16px;
+max-height: 200px;
+overflow-y: auto;
+padding-right: 4px;
+}
+
+.calc-rows::-webkit-scrollbar {
+width: 4px;
+}
+
+.calc-rows::-webkit-scrollbar-thumb {
+background: rgba(255,255,255,0.2);
+border-radius: 4px;
+}
+
+.calc-row {
+display: grid;
+grid-template-columns: 1fr 90px 85px;
+align-items: center;
+gap: 12px;
+background: rgba(255,255,255,0.14);
+padding: 10px 14px;
+border-radius: 14px;
+border: 1px solid rgba(255,255,255,0.15);
+animation: calcFadeIn 0.2s ease-out forwards;
+}
+
+@keyframes calcFadeIn {
+from { opacity: 0; transform: translateY(-6px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.calc-row-name {
+font-size: 14px;
+font-weight: 600;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.calc-input {
+width: 100%;
+padding: 8px 10px;
+border-radius: 10px;
+border: 1px solid rgba(255,255,255,0.2);
+background: rgba(0,0,0,0.25);
+color: #fff;
+font-family: inherit;
+font-size: 16px; 
+text-align: center;
+outline: none;
+transition: border-color 0.2s;
+}
+
+.calc-input:focus {
+border-color: #4ADE80;
+background: rgba(0,0,0,0.35);
+}
+
+.calc-input::-webkit-outer-spin-button,
+.calc-input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+.calc-input[type=number] {
+-moz-appearance: textfield;
+}
+
+.calc-row-sum {
+font-size: 14px;
+font-weight: 700;
+text-align: right;
+color: #4ADE80;
+}
+
+.calc-total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: rgba(0, 166, 81, 0.25);
+border: 1px solid rgba(0, 166, 81, 0.45);
+padding: 14px 18px;
+border-radius: 18px;
+margin-top: 12px;
+font-size: 16px;
+font-weight: 600;
+}
+
+.calc-total strong {
+font-size: 24px;
+color: #4ADE80;
+}
+
+section{
+padding:100px 0;
+scroll-margin-top: 100px;
+}
+
+.section-title{
+font-size:56px;
+line-height:1.05;
+font-weight:900;
+margin-bottom:18px;
+letter-spacing:-2px;
+}
+
+.section-text{
+font-size:20px;
+color:var(--gray);
+max-width:850px;
+margin-bottom:60px;
+}
+
+.catalog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+gap:28px;
+}
+
+.catalog-card{
+background:#fff;
+border-radius:34px;
+overflow:hidden;
+box-shadow:0 14px 34px rgba(0,0,0,0.07);
+transition:.3s;
+border:1px solid #f1f1f1;
+}
+
+.catalog-card:hover{
+transform:translateY(-6px);
+}
+
+.catalog-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.catalog-content{
+padding:34px;
+}
+
+.catalog-content h3{
+font-size:34px;
+margin-bottom:14px;
+}
+
+.catalog-content p{
+color:var(--gray);
+margin-bottom:26px;
+}
+
+.price-table{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.price-row{
+display:flex;
+justify-content:space-between;
+gap:20px;
+background:var(--light);
+padding:14px 18px;
+border-radius:16px;
+font-weight:600;
+}
+
+.about{
+background:var(--light);
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.about-video-box {
+width: 100%;
+height: 520px;
+border-radius: 34px;
+overflow: hidden;
+box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+background: #000;
+position: relative;
+}
+
+.about-video-box video {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+pointer-events: none;
+}
+
+.features{
+display:grid;
+gap:20px;
+margin-top:30px;
+}
+
+.feature{
+background:#fff;
+padding:24px;
+border-radius:22px;
+box-shadow:0 8px 22px rgba(0,0,0,0.05);
+}
+
+.feature h4{
+font-size:22px;
+margin-bottom:8px;
+}
+
+.feature p{
+color:var(--gray);
+}
+
+.contacts{
+background:linear-gradient(135deg,var(--green),var(--green-dark));
+color:#fff;
+border-radius:44px;
+padding:70px 50px;
+}
+
+.contacts-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+}
+
+.contacts h2{
+font-size:54px;
+line-height:1;
+margin-bottom:20px;
+}
+
+.contacts p{
+font-size:20px;
+opacity:0.94;
+margin-bottom:30px;
+}
+
+/* Кнопки в блоке контактов */
+.contact-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--green-dark) !important;
+}
+
+.btn-viber {
+  background: #7360F2;
+  color: var(--white) !important;
+}
+
+.contact-list{
+display:grid;
+gap:18px;
+}
+
+.contact-item{
+background:rgba(255,255,255,0.12);
+padding:18px 20px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+.contact-item strong{
+display:block;
+margin-bottom:6px;
+font-size:18px;
+}
+
+.footer{
+padding:40px 0;
+text-align:center;
+font-size:15px;
+color:var(--gray);
+}
+
+.viber-float {
+position: fixed;
+bottom: 24px;
+right: 24px;
+background: #7360F2;
+color: white;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 4px 24px rgba(115, 96, 242, 0.45);
+z-index: 999;
+text-decoration: none;
+font-weight: bold;
+font-size: 15px;
+transition: .3s;
+}
+
+.viber-float:hover {
+transform: scale(1.1);
+}
+
+/* ПЛАНШЕТЫ */
+@media(max-width:980px){
+.hero-grid,
+.about-grid,
+.contacts-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:52px;
+}
+
+.section-title,
+.contacts h2{
+font-size:42px;
+}
+
+.about-video-box {
+height: 380px;
+}
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media(max-width:640px){
+section {
+padding: 40px 0;
+scroll-margin-top: 90px; /* Корректировка под новую узкую шапку */
+}
+
+/* СЖИМАЕМ ШАПКУ */
+.navbar {
+flex-direction: column;
+padding: 8px 0; /* Минимальные отступы сверху и снизу */
+gap: 6px; /* Минимальное расстояние между логотипом и меню */
+}
+
+.logo {
+font-size: 22px; /* Уменьшенный шрифт логотипа */
+}
+
+.nav-links {
+width: 100%;
+justify-content: center;
+gap: 4px; /* Меньше отступы между кнопками */
+}
+
+.nav-links a {
+font-size: 13px;
+background: var(--light);
+padding: 6px 10px;
+border-radius: 8px;
+}
+
+/* ФИКС ЦВЕТА КНОПКИ */
+.contact-btn {
+background: var(--green) !important;
+color: #fff !important;
+padding: 6px 14px !important;
+border-radius: 8px !important;
+box-shadow: 0 4px 10px rgba(0, 166, 81, 0.2); /* Легкая тень для привлечения внимания */
+}
+
+.hero {
+padding: 40px 0;
+}
+
+.hero h1 {
+font-size: 38px;
+text-align: center;
+margin-bottom: 16px;
+line-height: 1.1;
+}
+
+.hero p {
+font-size: 16px;
+text-align: center;
+margin-bottom: 28px;
+}
+
+.promo-banner {
+margin: 0 auto 24px;
+width: 100%;
+padding: 20px 16px;
+border-radius: 20px;
+}
+
+.promo-item {
+font-size: 16px;
+}
+
+.promo-item strong {
+font-size: 20px;
+}
+
+.hero-card {
+padding: 24px 16px;
+border-radius: 24px;
+}
+
+.hero-card h3 {
+font-size: 24px;
+margin-bottom: 8px;
+}
+
+.calc-instruction {
+font-size: 13px;
+margin-bottom: 12px;
+}
+
+.calc-cat-header {
+padding: 12px 14px;
+font-size: 14px;
+}
+
+.calc-cat-content {
+grid-template-columns: 1fr;
+gap: 6px;
+padding: 4px 10px 14px;
+}
+
+.calc-item-label {
+font-size: 14px;
+padding: 10px;
+}
+
+.calc-row {
+grid-template-columns: 1fr 85px 75px; 
+padding: 10px;
+gap: 10px;
+border-radius: 12px;
+}
+
+.calc-row-name, .calc-row-sum {
+font-size: 13px;
+}
+
+.calc-input {
+padding: 8px 6px;
+border-radius: 8px;
+font-size: 16px; 
+}
+
+.calc-total {
+padding: 14px;
+font-size: 14px;
+border-radius: 14px;
+}
+
+.calc-total strong {
+font-size: 22px;
+}
+
+.section-title {
+font-size: 32px;
+text-align: center;
+margin-bottom: 12px;
+}
+
+.section-text {
+font-size: 16px;
+text-align: center;
+margin-bottom: 30px;
+}
+
+.catalog-grid {
+grid-template-columns: 1fr;
+gap: 20px;
+}
+
+.catalog-card {
+border-radius: 24px;
+}
+
+.catalog-card img {
+height: 200px;
+}
+
+.catalog-content {
+padding: 24px 20px;
+}
+
+.catalog-content h3 {
+font-size: 26px;
+margin-bottom: 8px;
+text-align: center;
+}
+
+.catalog-content p {
+font-size: 14px;
+text-align: center;
+margin-bottom: 20px;
+}
+
+.price-table {
+gap: 8px;
+}
+
+.price-row {
+padding: 12px 16px;
+border-radius: 12px;
+font-size: 14px;
+}
+
+.about-video-box {
+height: 260px;
+border-radius: 24px;
+}
+
+.features {
+gap: 12px;
+}
+
+.feature {
+padding: 20px;
+border-radius: 18px;
+}
+
+.feature h4 {
+font-size: 20px;
+}
+
+.feature p {
+font-size: 14px;
+}
+
+.contacts {
+border-radius: 28px;
+padding: 40px 20px;
+}
+
+.contacts h2 {
+font-size: 32px;
+text-align: center;
+}
+
+.contacts p {
+font-size: 16px;
+text-align: center;
+}
+
+.contact-actions {
+justify-content: center;
+margin-bottom: 10px;
+}
+
+.contact-item {
+padding: 16px;
+border-radius: 16px;
+font-size: 14px;
+}
+
+.contact-item strong {
+font-size: 16px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 15px;
+  width: 100%; 
+  max-width: 280px; 
+}
+
+.viber-float {
+width: 52px;
+height: 52px;
+bottom: 16px;
+right: 16px;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container navbar">
+<div class="logo">СкладЦентрЧобручи</div>
+
+<div class="nav-links">
+<a href="#catalog">Цены</a>
+<a href="#about">О складе</a>
+<a href="#contacts">Контакты</a>
+<a href="tel:+37377758878" class="contact-btn">Позвонить</a>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-grid">
+
+<div>
+<h1>Корма, зерно и комбикорм в ПМР</h1>
+
+<p>
+Продажа зерновых культур, кормов, муки, макуха, масел и комбикорма напрямую со склада в Чобручах.
+Быстрая загрузка, честные цены и доставка по району.
+</p>
+
+<div class="promo-banner">
+<div class="promo-badge">Выгодная акция</div>
+<div class="promo-items">
+<div class="promo-item"><span>Мука высший сорт (5 кг)</span> <strong>35 руб</strong></div>
+<div class="promo-item"><span>Мука высший сорт (10 кг)</span> <strong>65 руб</strong></div>
+<div class="promo-item"><span>Отруби (мешок 25 кг)</span> <strong>75 руб</strong></div>
+</div>
+</div>
+</div>
+
+<div class="hero-card">
+<h3>Калькулятор стоимости</h3>
+<p class="calc-instruction">Нажмите на группу, чтобы выбрать товары:</p>
+
+<div class="calc-container">
+    
+    <div class="calc-cat">
+        <div class="calc-cat-header">Зерновые и корма <span class="arrow">▼</span></div>
+        <div class="calc-cat-content">
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-1" data-price="3.4" data-name="Пшеница кормовая" data-unit="кг"> Пшеница</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-2" data-price="3.6" data-name="Кукуруза в зернах" data-unit="кг"> Кукуруза</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-3" data-price="4.0" data-name="Ячмень" data-unit="кг"> Ячмень</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-4" data-price="5.5" data-name="Горох" data-unit="кг"> Горох</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-5" data-price="4.1" data-name="Комбикорм" data-unit="кг"> Комбикорм</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-6" data-price="5.5" data-name="Макуха обычная" data-unit="кг"> Макуха обычная</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-7" data-price="7.0" data-name="Макуха высокопротеиновая" data-unit="кг"> Макуха высокопрот.</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-8" data-price="13.0" data-name="Соевый шрот" data-unit="кг"> Соевый шрот</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-9" data-price="5.5" data-name="Гранулы для кроликов" data-unit="кг"> Для кроликов</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-10" data-price="75.0" data-name="Отруби (мешок 25кг)" data-unit="меш"> Отруби 25кг</label>
+        </div>
+    </div>
+
+    <div class="calc-cat">
+        <div class="calc-cat-header">Мука и бакалея <span class="arrow">▼</span></div>
+        <div class="calc-cat-content">
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-11" data-price="35.0" data-name="Мука в/с 5 кг" data-unit="шт"> Мука 5 кг</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-12" data-price="65.0" data-name="Мука в/с 10 кг" data-unit="шт"> Мука 10 кг</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-13" data-price="320.0" data-name="Мука в/с 50 кг" data-unit="шт"> Мука 50 кг</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-14" data-price="32.0" data-name="Фасоль" data-unit="кг"> Фасоль</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-15" data-price="20.0" data-name="Нут" data-unit="кг"> Нут</label>
+        </div>
+    </div>
+
+    <div class="calc-cat">
+        <div class="calc-cat-header">Добавки и другие товары <span class="arrow">▼</span></div>
+        <div class="calc-cat-content">
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-16" data-price="35.0" data-name="Рыбная мука" data-unit="кг"> Рыбная мука</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-17" data-price="10.0" data-name="Костная мука" data-unit="кг"> Костная мука</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-18" data-price="15.0" data-name="Старт для цыплят" data-unit="кг"> Старт для цыплят</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-19" data-price="15.0" data-name="Рост для цыплят" data-unit="кг"> Рост для цыплят</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-20" data-price="40.0" data-name="Премикс для кур" data-unit="кг"> Премикс кур</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-21" data-price="35.0" data-name="Сухой корм для собак" data-unit="меш"> Корм для собак</label>
+            <label class="calc-item-label"><input type="checkbox" class="calc-checkbox" id="c-22" data-price="19.0" data-name="Корм для кошек" data-unit="кг"> Корм для кошек</label>
+        </div>
+    </div>
+
+</div>
+
+<div id="calc-rows" class="calc-rows"></div>
+
+<div class="calc-total" id="calc-total-block" style="display: none;">
+<span>Итоговая сумма:</span>
+<div><strong id="grand-total">0</strong> руб</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="catalog">
+<div class="container">
+
+<h2 class="section-title">Ассортимент и цены со склада</h2>
+<p class="section-text">
+Все позиции всегда в наличии на складе в мешках и на вес. Приезжайте в любое удобное утро!
+</p>
+
+<div class="catalog-grid">
+
+<div class="catalog-card">
+<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1400&auto=format&fit=crop" alt="Зерновые">
+
+<div class="catalog-content">
+<h3>Зерновые и корма</h3>
+<p>Основной ассортимент зерновых культур.</p>
+
+<div class="price-table">
+<div class="price-row"><span>Пшеница</span><span>3,4 руб / кг</span></div>
+<div class="price-row"><span>Кукуруза</span><span>3,6 руб / кг</span></div>
+<div class="price-row"><span>Ячмень</span><span>4,0 руб / кг</span></div>
+<div class="price-row"><span>Горох</span><span>5,5 руб / кг</span></div>
+<div class="price-row"><span>Комбикорм</span><span>4,1 руб / кг</span></div>
+<div class="price-row"><span>Макуха обычная</span><span>5,5 руб / кг</span></div>
+<div class="price-row"><span>Макуха высокопротеиновая</span><span>7,0 руб / кг</span></div>
+<div class="price-row"><span>Соевый шрот</span><span>13 руб / кг</span></div>
+<div class="price-row"><span>Гранулы для кроликов</span><span>5,5 руб / кг</span></div>
+<div class="price-row"><span>Отруби 25 кг</span><span>75 руб / мешок</span></div>
+</div>
+</div>
+</div>
+
+<div class="catalog-card">
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1400&auto=format&fit=crop" alt="Мука">
+
+<div class="catalog-content">
+<h3>Мука и бакалея</h3>
+<p>Мука, фасоль, нут и масла.</p>
+
+<div class="price-table">
+<div class="price-row"><span>Мука высший сорт 5 кг</span><span>35 руб</span></div>
+<div class="price-row"><span>Мука высший сорт 10 кг</span><span>65 руб</span></div>
+<div class="price-row"><span>Мука высший сорт 50 кг</span><span>320 руб</span></div>
+<div class="price-row"><span>Фасоль</span><span>32 руб / кг</span></div>
+<div class="price-row"><span>Нут</span><span>20 руб / кг</span></div>
+<div class="price-row"><span>Масло 1л</span><span>В наличии</span></div>
+<div class="price-row"><span>Масло 1,5л</span><span>В наличии</span></div>
+<div class="price-row"><span>Масло 3л</span><span>В наличии</span></div>
+<div class="price-row"><span>Масло 5л</span><span>В наличии</span></div>
+</div>
+</div>
+</div>
+
+<div class="catalog-card">
+<img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?q=80&w=1400&auto=format&fit=crop" alt="Добавки">
+
+<div class="catalog-content">
+<h3>Добавки и другие товары</h3>
+<p>Товары для птиц и домашних животных.</p>
+
+<div class="price-table">
+<div class="price-row"><span>Рыбная мука</span><span>35 руб / кг</span></div>
+<div class="price-row"><span>Костная мука</span><span>10 руб / кг</span></div>
+<div class="price-row"><span>Старт для цыплят</span><span>15 руб / кг</span></div>
+<div class="price-row"><span>Рост для цыплят</span><span>15 руб / кг</span></div>
+<div class="price-row"><span>Премикс для кур</span><span>40 руб / кг</span></div>
+<div class="price-row"><span>Корм для собак</span><span>35 руб / мешок</span></div>
+<div class="price-row"><span>Корм для кошек</span><span>18 руб / кг</span></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="container about-grid">
+
+<div class="about-video-box">
+<video src="Пшеница поле_720p60.mp4" autoplay loop muted playsinline></video>
+</div>
+
+<div>
+<h2 class="section-title">Приезжайте к нам на склад</h2>
+
+<p class="section-text">
+Находимся в Чобручах, место удобное, хорошая дорога прямо до ворот. Работаем так, чтобы вам было выгодно и удобно закупаться.
+</p>
+
+<div class="features">
+<div class="feature">
+<h4>Всё в одном месте</h4>
+<p>Зерно, комбикорм, отруби, масло и мука — загрузим всё сразу в один кузов.</p>
+</div>
+
+<div class="feature">
+<h4>Поможем погрузить</h4>
+<p>Спокойно подъезжайте, наши ребята сами закинут тяжелые мешки в багажник или прицеп.</p>
+</div>
+
+<div class="feature">
+<h4>Привезем домой</h4>
+<p>Если машины нет или объем большой — скажите адрес. У нас есть свой транспорт, доставим корма прямо к вашему двору.</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="contacts">
+<div class="container">
+<div class="contacts">
+
+<div class="contacts-grid">
+
+<div>
+<h2>Связаться с нами</h2>
+
+<p>
+Уточнить наличие товара, узнать цену или оформить доставку можно по телефону или через Viber.
+</p>
+
+<div class="contact-actions">
+<a href="tel:+37377758878" class="btn btn-white">+373 (777) 58‑878</a>
+
+<a href="viber://chat?number=%2B37377758878" class="btn btn-viber" target="_blank">
+Viber
+</a>
+</div>
+</div>
+
+<div class="contact-list">
+
+<div class="contact-item">
+<strong>Адрес склада</strong>
+ПМР, Слободзейский район, с. Чобручи, ул. Ленина, 39
+</div>
+
+<div class="contact-item">
+<strong>Второй номер</strong>
++373 (778) 99‑094
+</div>
+
+<div class="contact-item">
+<strong>График работы</strong>
+Ежедневно с 08:00 до 13:00
+</div>
+
+<div class="contact-item">
+<strong>Доставка</strong>
+Есть доставка по всему ПМР
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+Склад Центр — корма, зерно, комбикорм и мука в ПМР · Чобручи · ООО "Рождество"
+</div>
+</footer>
+
+<a href="viber://chat?number=%2B37377758878" class="viber-float" target="_blank">Viber</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const headers = document.querySelectorAll('.calc-cat-header');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const cat = header.parentElement;
+            cat.classList.toggle('active');
+        });
+    });
+
+    const checkboxes = document.querySelectorAll('.calc-checkbox');
+    const rowsContainer = document.getElementById('calc-rows');
+    const totalBlock = document.getElementById('calc-total-block');
+    const grandTotalEl = document.getElementById('grand-total');
+
+    function calculateTotal() {
+        let grandTotal = 0;
+        const rows = rowsContainer.querySelectorAll('.calc-row');
+        
+        rows.forEach(row => {
+            const price = parseFloat(row.dataset.price);
+            const input = row.querySelector('.calc-input');
+            let qty = parseFloat(input.value);
+            
+            if (isNaN(qty) || qty < 0) qty = 0;
+            
+            const itemSum = qty * price;
+            row.querySelector('.calc-row-sum').textContent = itemSum.toFixed(1).replace('.0', '') + ' руб';
+            grandTotal += itemSum;
+        });
+        
+        grandTotalEl.textContent = grandTotal.toFixed(1).replace('.0', '');
+        
+        if (rows.length > 0) {
+            totalBlock.style.display = 'flex';
+        } else {
+            totalBlock.style.display = 'none';
+        }
+    }
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            const id = cb.id;
+            const price = cb.dataset.price;
+            const name = cb.dataset.name;
+            const unit = cb.dataset.unit;
+
+            if (cb.checked) {
+                const row = document.createElement('div');
+                row.className = 'calc-row';
+                row.id = `row-${id}`;
+                row.dataset.price = price;
+                row.innerHTML = `
+                    <div class="calc-row-name" title="${name}">${name}</div>
+                    <div><input type="number" class="calc-input" placeholder="${unit}" min="0"></div>
+                    <div class="calc-row-sum">0 руб</div>
+                `;
+                rowsContainer.appendChild(row);
+                
+                const input = row.querySelector('.calc-input');
+                input.focus();
+                input.addEventListener('input', calculateTotal);
+            } else {
+                const rowToRemove = document.getElementById(`row-${id}`);
+                if (rowToRemove) rowToRemove.remove();
+            }
+            calculateTotal();
+        });
+    });
+});
+</script>
+
+</body>
+</html>
